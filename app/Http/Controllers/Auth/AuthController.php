@@ -32,7 +32,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
         }
-        Auth::attempt($request);
+        Auth::attempt($request->except('_token'));
         if (Auth::check()) {
             return redirect()->route('home');
         }else{

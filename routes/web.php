@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\TamuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +27,18 @@ Route::post('login', [AuthController::class, '_login'])->name('do_login');
 Route::get('register', [AuthController::class, 'showFormRegister'])->name('register');
 Route::post('register', [AuthController::class, '_register'])->name('do_register');
 
+
+Route::group(['middleware' => 'auth'], function () {
+ 
+    Route::get('home', [HomeController::class, 'index'])->name('home');
+
+
+    Route::post('tamu', [TamuController::class, 'store'])->name('tamu.store');
+ 
+});
+
 // Route::prefix(['middleware' => 'auth'])->group(function () {
-//     // Route::get('home', [AuthController::class, 'showFormRegister'])->name('register');
-//     // Route::get('home', [AuthController::class, 'showFormRegister'])->name('register');
+
 // });
 
 
