@@ -20,25 +20,24 @@ use App\Http\Controllers\Admin\TamuController;
 //     return view('welcome');
 // });
 
-Route::get('/', function (){ return redirect('/login');} )->name('login');
+Route::get('/', function (){ return redirect('home');} )->name('login');
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('login');
 Route::post('login', [AuthController::class, '_login'])->name('do_login');
 
 Route::get('register', [AuthController::class, 'showFormRegister'])->name('register');
 Route::post('register', [AuthController::class, '_register'])->name('do_register');
 
+Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::post('tamu', [TamuController::class, 'store'])->name('tamu.store');
 
-Route::group(['middleware' => 'auth'], function () {
+
+// Route::group(['middleware' => 'auth'], function () {
  
-    Route::get('home', [HomeController::class, 'index'])->name('home');
+//     Route::get('home', [HomeController::class, 'index'])->name('home');
+//     Route::post('tamu', [TamuController::class, 'store'])->name('tamu.store');
+//     Route::get('logout', [AuthController::class, '_logout'])->name('logout');
 
-
-    Route::post('tamu', [TamuController::class, 'store'])->name('tamu.store');
  
-});
-
-// Route::prefix(['middleware' => 'auth'])->group(function () {
-
 // });
 
 

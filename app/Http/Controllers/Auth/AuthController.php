@@ -74,4 +74,10 @@ class AuthController extends Controller
             return redirect()->route('register');
         }
     }
+
+    protected function _logout()
+    {
+        Auth::logout(); // menghapus session yang aktif
+        return redirect()->route('login');
+    }
 }

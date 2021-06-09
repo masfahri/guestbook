@@ -1,6 +1,6 @@
 @if(session('errors'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Waduh Ada Yang Salah Gaes :()
+        Waduh Ada Yang Salah Gaes :(
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>

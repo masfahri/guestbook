@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function index(TamuModel $tamuModel)
     {
         $data['tamu'] = $tamuModel::all();
-        return view('Admin.index', 
+        return view('Admin.v2.index', 
             [
                 'pageTitle' => 'Dashboard',
                 'tamu'      => $data['tamu']
